@@ -561,7 +561,7 @@ class PortFolder {
 				$options[$key] = $option;
 		}
 	
-		echo '<input type="text" id="hometitle-portfolder" name="portfolder_options[hometitle-portfolder]" size="70" value="'. $options['portfolder-hometitle'] .'" />';
+		echo '<input type="text" id="hometitle-portfolder" name="portfolder_options[hometitle-portfolder]" size="70" value="' . (isset($options['portfolder-hometitle']) ? $options['portfolder-hometitle'] : '') . '" />';
 	}
 
 
@@ -581,7 +581,7 @@ class PortFolder {
 		}
 		
 		?> 
-        <textarea name="portfolder_options[homeblurb-portfolder]" cols="100" rows="9" id="homeblurb-portfolder"/><?php echo $options['portfolder-homeblurb'] ?></textarea>
+        <textarea name="portfolder_options[homeblurb-portfolder]" cols="100" rows="9" id="homeblurb-portfolder"/><?php echo (isset($options['portfolder-homeblurb']) ? $options['portfolder-homeblurb'] : '') ?></textarea>
 		<?php 
 		
 	
@@ -603,11 +603,14 @@ class PortFolder {
 				$options[$key] = $option;
 		}
 		
-		?>  <?php echo ($options['portfolder-homeimage'] ? '<img src="'.$options['portfolder-homeimage'] . '" alt="" />' : '' ) ?>
+		?> 
+      <?php  if (isset($options['portfolder-homeimage']))
+			echo ($options['portfolder-homeimage'] ? '<img src="'.$options['portfolder-homeimage'] . '" alt="" />' : '' ) 
+	?>
         	
             <br />
             
-       		<input type="text" id="homeimage-portfolder" name="portfolder_options[homeimage-portfolder]" size="80" value="<?php echo $options['portfolder-homeimage'] ?>" />
+       		<input type="text" id="homeimage-portfolder" name="portfolder_options[homeimage-portfolder]" size="80" value="<?php echo (isset($options['portfolder-homeimage']) ? $options['portfolder-homeimage'] : '') ?>" />
 	
 		<?php 
 	
@@ -629,7 +632,7 @@ class PortFolder {
 		}
 		
 		?> 
-       		<input type="text" id="homeimagecaption-portfolder" name="portfolder_options[homeimagecaption-portfolder]" size="80" value="<?php echo $options['portfolder-homeimagecaption'] ?>" />
+       		<input type="text" id="homeimagecaption-portfolder" name="portfolder_options[homeimagecaption-portfolder]" size="80" value="<?php echo (isset($options['portfolder-homeimagecaption']) ? $options['portfolder-homeimagecaption'] : '') ?>" />
 	
 		<?php 
 	
@@ -651,7 +654,7 @@ class PortFolder {
 				$options[$key] = $option;
 		}
 	
-		echo '<input type="checkbox" id="force-portfolder" name="portfolder_options[force-portfolder]" value="1" '. checked( 1, $options['portfolder-force'], false ) .' />' ;
+		echo '<input type="checkbox" id="force-portfolder" name="portfolder_options[force-portfolder]" value="1" '. checked( 1, (isset($options['portfolder-force']) ? $options['portfolder-force'] : ''), false ) .' />' ;
 	
 	}
 
