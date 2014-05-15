@@ -35,54 +35,40 @@ class PortFolder {
 
 		$this->pluginUrl = WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__));
 
-		wp_register_style('portfolder-plugin', $this->pluginUrl.'/css/portfolder.css');
-		wp_enqueue_style('portfolder-plugin');
+		// register scripts
 
         if (!is_admin()) {
 
 			if (is_home()) {
 
 				if (!(bool) get_option('portfolder_force')) {
-	
 					//add_action('show_admin_bar', '__return_false');
-	
 				}
 			}
-			
-			
-			if (!(bool) get_option('portfolder-active')) {
-	
-				//add_action('show_admin_bar', '__return_false');
 
+			if (!(bool) get_option('portfolder-active')) {
+				//add_action('show_admin_bar', '__return_false');
 			}
 
         } else {
-			
-			
-
             $this->LoadTextDomain();
-
-			//wp_register_script('portfolder-jquery-form', '/wp-includes/js/jquery/jquery.form.min.js', array('jquery-form'),true,'',false);
-			
-			//wp_enqueue_script('portfolder-jquery-form');
-			
-
-			wp_register_script('jquery-ui-sortable', '/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js', array('jquery-ui-sortable'),true,'',false);
-			
-			wp_enqueue_script('jquery-ui-sortable');
-
-
             add_action('admin_menu', array(&$this,'MenuPagesInit'));
-
             add_action('admin_init',array(&$this,'Attachments'));
-
 			add_action('admin_head', array(&$this,'draggable_script_addon'));
-
         } 
 
     }
 
 	public function draggable_script_addon() {
+
+        wp_register_style('portfolder-plugin', $this->pluginUrl.'/css/portfolder.css');
+		wp_enqueue_style('portfolder-plugin');
+		
+		//wp_register_script('portfolder-jquery-form', '/wp-includes/js/jquery/jquery.form.min.js', array('jquery-form'),true,'',false);
+		//wp_enqueue_script('portfolder-jquery-form');
+		
+		wp_register_script('jquery-ui-sortable', '/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js', array('jquery-ui-sortable'),true,'',false);
+		wp_enqueue_script('jquery-ui-sortable');
 
 		//wp_register_script('portfolder-plugin', $this->pluginUrl.'/js/portfolder.js', array('jquery-form'));
 		
@@ -595,7 +581,7 @@ class PortFolder {
 		}
 		
 		?> 
-        <textarea name="portfolder_options[homeblurb-portfolder]" cols="100" rows="9" id="homeblurb-portfolder"/><? echo $options['portfolder-homeblurb'] ?></textarea>
+        <textarea name="portfolder_options[homeblurb-portfolder]" cols="100" rows="9" id="homeblurb-portfolder"/><?php echo $options['portfolder-homeblurb'] ?></textarea>
 		<?php 
 		
 	
@@ -621,7 +607,7 @@ class PortFolder {
         	
             <br />
             
-       		<input type="text" id="homeimage-portfolder" name="portfolder_options[homeimage-portfolder]" size="80" value="<? echo $options['portfolder-homeimage'] ?>" />
+       		<input type="text" id="homeimage-portfolder" name="portfolder_options[homeimage-portfolder]" size="80" value="<?php echo $options['portfolder-homeimage'] ?>" />
 	
 		<?php 
 	
@@ -643,7 +629,7 @@ class PortFolder {
 		}
 		
 		?> 
-       		<input type="text" id="homeimagecaption-portfolder" name="portfolder_options[homeimagecaption-portfolder]" size="80" value="<? echo $options['portfolder-homeimagecaption'] ?>" />
+       		<input type="text" id="homeimagecaption-portfolder" name="portfolder_options[homeimagecaption-portfolder]" size="80" value="<?php echo $options['portfolder-homeimagecaption'] ?>" />
 	
 		<?php 
 	
@@ -959,7 +945,7 @@ class PortFolder {
                 <ul class="portfolder-form-controlls">
 
 
-					<? // BEGIN HOMEPAGE SETTING PAGE
+					<?php // BEGIN HOMEPAGE SETTING PAGE
 					
 						if (!$this->getOptionPage()):
 
@@ -1025,7 +1011,7 @@ class PortFolder {
 
                         <h3>Featured Categories</h3>
 
-                    	<? 
+                    	<?php 
 								
 							$portfolder_options = get_option("portfolder_featured_options");
 		
@@ -1099,7 +1085,7 @@ class PortFolder {
                                     
                                    
 							
-								<? 
+								<?php 
 								
 								 $n++;
 								
@@ -1242,7 +1228,7 @@ class PortFolder {
 
 									</li>
 							
-								<? 
+								<?php 
 								
 								 $n++;
 								
@@ -1371,7 +1357,7 @@ class PortFolder {
     
             <div class="four columns">
     
-    			<? $portfolder_options = get_option("portfolder_options");
+    			<?php $portfolder_options = get_option("portfolder_options");
 	
 					if (!empty($portfolder_options)) {
 						foreach ($portfolder_options as $key => $option)
@@ -1392,7 +1378,7 @@ class PortFolder {
 
                 <ul data-orbit>
                 
-                <? $portfolder_options = get_option("portfolder_options");
+                <?php $portfolder_options = get_option("portfolder_options");
                 
                         if (!empty($portfolder_options)) {
                             foreach ($portfolder_options as $key => $option)
@@ -1423,7 +1409,7 @@ class PortFolder {
                     <ul class="slides">
             
 
-                    <? $portfolder_options = get_option("portfolder_options");
+                    <?php $portfolder_options = get_option("portfolder_options");
             
                             if (!empty($portfolder_options)) {
                                 foreach ($portfolder_options as $key => $option)
@@ -1488,7 +1474,7 @@ class PortFolder {
 			
 			<div class="row">
             
-            <? $portfolder_options = get_option("portfolder_featured_options");
+            <?php $portfolder_options = get_option("portfolder_featured_options");
                     
 					if (!empty($portfolder_options)) {
 						foreach ($portfolder_options as $key => $option)
@@ -1529,7 +1515,7 @@ class PortFolder {
 					</div><!--boxes  end-->
 			
 			
-				<? 
+				<?php 
 				
 				 $n++;
 				
@@ -1580,7 +1566,7 @@ function DisplayPortfolderPortfolio(){
             <div class="row">
             
             
-            <? $portfolder_options = get_option("portfolder_portfolio_options");
+            <?php $portfolder_options = get_option("portfolder_portfolio_options");
                     
 					if (!empty($portfolder_options)) {
 						foreach ($portfolder_options as $key => $option)
@@ -1622,7 +1608,7 @@ function DisplayPortfolderPortfolio(){
 					</div><!--boxes  end-->
 			
 			
-				<? 
+				<?php 
 				
 				 $n++;
 				
