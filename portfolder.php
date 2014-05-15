@@ -37,27 +37,16 @@ class PortFolder {
 
 		// register scripts
 
-        if (!is_admin()) {
-
-			if (is_home()) {
-
-				if (!(bool) get_option('portfolder_force')) {
-					//add_action('show_admin_bar', '__return_false');
-				}
-			}
-
-			if (!(bool) get_option('portfolder-active')) {
-				//add_action('show_admin_bar', '__return_false');
-			}
-
-        } else {
-            $this->LoadTextDomain();
-            add_action('admin_menu', array(&$this,'MenuPagesInit'));
-            add_action('admin_init',array(&$this,'Attachments'));
-			add_action('admin_head', array(&$this,'draggable_script_addon'));
-        } 
+        $this->LoadTextDomain();
+        add_action('admin_menu', array(&$this,'MenuPagesInit'));
+        add_action('admin_init',array(&$this,'Attachments'));
+		add_action('admin_head', array(&$this,'draggable_script_addon'));
+		
+		// portfolder display shortcode
+		add_shortcode('portfolder',array(&$this,'portfolder_main_code'));
 
     }
+
 
 	public function draggable_script_addon() {
 
@@ -71,7 +60,7 @@ class PortFolder {
 		wp_enqueue_script('jquery-ui-sortable');
 
 		//wp_register_script('portfolder-plugin', $this->pluginUrl.'/js/portfolder.js', array('jquery-form'));
-		
+
 		?>
         
 		<script language="javascript">
@@ -1352,6 +1341,12 @@ class PortFolder {
 
     }
 
+    // DisplayPortfolderHome short code display type 
+    function portfolder_main_code($atts){
+		//Display Portfolder Content
+		return $this->DisplayPortfolderHome();
+	}
+
 	function DisplayPortfolderHome(){ ?>
     
 		<div id="portfolder_container">
@@ -1546,9 +1541,6 @@ class PortFolder {
     
 	
 <?php }
-
-
-
 
 function DisplayPortfolderPortfolio(){ 
 
