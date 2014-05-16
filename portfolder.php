@@ -43,67 +43,42 @@ class PortFolder {
 		add_action('admin_head', array(&$this,'draggable_script_addon'));
 		
 		// portfolder display shortcode
-		add_shortcode('portfolder',array(&$this,'portfolder_main_code'));
+		add_shortcode('portfolder',array(&$this,'portfolder_home_code'));
+		add_shortcode('portfolder_main',array(&$this,'portfolder_main_code'));
 
     }
 
-
 	public function draggable_script_addon() {
 
-        wp_register_style('portfolder-plugin', $this->pluginUrl.'/css/portfolder.css');
-		wp_enqueue_style('portfolder-plugin');
-		
-		//wp_register_script('portfolder-jquery-form', '/wp-includes/js/jquery/jquery.form.min.js', array('jquery-form'),true,'',false);
-		//wp_enqueue_script('portfolder-jquery-form');
-		
-		wp_register_script('jquery-ui-sortable', '/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js', array('jquery-ui-sortable'),true,'',false);
-		wp_enqueue_script('jquery-ui-sortable');
-
-		//wp_register_script('portfolder-plugin', $this->pluginUrl.'/js/portfolder.js', array('jquery-form'));
-
-		?>
+?>
         
-		<script language="javascript">
-		<!--
+<script language="javascript">
+  <!--
+	jQuery(function() {
 		
-			jQuery(function() {
-				
-				jQuery( "#sortable-categories" ).sortable({
-					
-					start: function (e, ui) {
-						
-						//alert("started");
-					
-					},
-					
-					update: function (e, ui) {
-						
-						//alert("updated");
-
-						
-					}
-				});
-				
-				jQuery( "#sortable-categories" ).disableSelection();
-				
-				
-				
-				/* scroll to ADD NEEW CATEGORY form */
-				
-				jQuery("a[href='#new-category']").click(function() {
-				
-				jQuery("html, body").animate({ scrollTop: jQuery(document).height() }, "slow");
-				
-				return false;
-				
-				});
-				
-			});
+		jQuery( "#sortable-categories" ).sortable({
+			start: function (e, ui) {
+				//alert("started");
+			},
 			
-		-->
-		</script>
-        
-        <?php	
+			update: function (e, ui) {
+				//alert("updated");
+			}
+		});
+		
+		jQuery( "#sortable-categories" ).disableSelection();
+
+		/* scroll to ADD NEEW CATEGORY form */
+		jQuery("a[href='#new-category']").click(function() {
+		jQuery("html, body").animate({ scrollTop: jQuery(document).height() }, "slow");
+		return false;
+		
+		});
+	});	
+  -->
+</script>
+
+ <?php	
 		
 	}
 
@@ -117,6 +92,20 @@ class PortFolder {
 
 
     public function Attachments() {
+
+		wp_register_style('foundation5-custom', $this->pluginUrl.'/foundation-5.2.2/css/foundation.css');
+		wp_enqueue_style('foundation5-custom');
+		
+		wp_register_style('portfolder-css', $this->pluginUrl.'/css/portfolder.css');
+		wp_enqueue_style('portfolder-css');
+		
+		
+		wp_register_script('foundation-5-custom', $this->pluginUrl . '/foundation-5.2.2/js/foundation.min.js', array('jquery'), 'jquery', '', false);
+		wp_enqueue_script('foundation-5-custom');
+		
+		wp_register_script('jquery-ui-sortable', '/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js', array('jquery-ui-sortable'),true,'',false);
+		wp_enqueue_script('jquery-ui-sortable');
+
 
 		// HOME PAGE SETTINGS ----------------------------------------------------------------------------
 
@@ -1024,7 +1013,7 @@ class PortFolder {
                                 
                                 </p>
                                 
-                                <div class="row twelve" id="features_container">
+                                <div class="small-10" id="features_container">
                     
                     			<h3>Preview Categories: <span> <a href="#new-category" class="button button-primary">Add New Category</a> </span></h3>
                             
@@ -1040,7 +1029,7 @@ class PortFolder {
 				
                 					
                                     
-                                        <li>
+                                        <li class="small-3 columns left">
                                         
                                         	<input type="hidden" name="featured-category-id" id="featured-category-id" value="<?php echo $n ?>" />
                     
@@ -1067,7 +1056,7 @@ class PortFolder {
                                     
                                                 </div> <!--box-content close-->
                                     
-                                            <span class="read-more"><a href="<?php echo ($options['featured-category-link'][$n] ? $options['featured-category-link'][$n] : '#') ?>" target="_blank"><?php _e('Read More'); ?></a></span>
+                                            <a href="<?php echo ($options['featured-category-link'][$n] ? $options['featured-category-link'][$n] : '#') ?>" class="button radius" target="_blank"><?php _e('Preview'); ?></a>
                                 
                                 
                                         </div><!--boxes  end-->
@@ -1145,7 +1134,7 @@ class PortFolder {
 
                     ?>
                     
-                     <li>
+                     <li class="clearfix">
 
                         <h3>Portfolio Categories</h3>
 
@@ -1164,18 +1153,18 @@ class PortFolder {
 								
 							?>
                             
-                            	<p style="padding: 20px; color: #777; border: 1px #09C solid; border-radius: 4px; font-size: 14px; width: 1040px;">
+                            	<div class="panel">
                                     
                                     <strong style="color: #09C; margin-right: 10px;">Tip:</strong> Sort portfolio categories by dragging them to a new position.
                                 
-                               </p>
+                               </div>
                         
-                        		<div class="row twelve" id="features_container">
+                        		<div class="small-12 columns" id="features_container">
                     
-                    			<h3>Preview Categories: <span> <a href="#new-category" class="button button-primary">Add New Category</a> </span> </h3>
+                    			<h3 class="clearfix">Preview Categories: <span> <a href="#new-category" class="button button-primary">Add New Category</a> </span> </h3>
                             
                             
-                            	<ul id="sortable-categories">
+                            	<ul id="sortable-categories" class="small-12 clearfix" data-equalizer>
                             
                             <?php
 								
@@ -1185,11 +1174,11 @@ class PortFolder {
 
 								for ($i = 1; $i <= $count; $i++) { ?>
 				
-                					<li>
+                					<li class="small-3 columns left" data-equalizer-watch>
                                     
                                     <input type="hidden" name="featured-portfolio-id" id="featured-category-id" value="<?php echo $n ?>" />
                 
-									<div class="columns admin-edit">
+									<div class="admin-edit">
                                     
                                     	<div class="admin-edit-panel"><a href="#">Modify</a> | <a href="<?php echo $_SERVER['PHP_SELF']."?page=".$_REQUEST['page']."&option_page=remove-portfolio-category&sid=".$n."";  ?>">Remove</a></div>
 							
@@ -1198,12 +1187,10 @@ class PortFolder {
 										<img src="<?php echo ($options['portfolio-category-image'][$n] ? $options['portfolio-category-image'][$n] : $this->pluginUrl . '/img/feature-bg.png') ?>" alt="" border="0" />
 							
 										</div> <!--box-head close-->
-							
-							
+
 									<div class="title-box">						
 							
 									<div class="title-head"><h1><?php echo ($options['portfolio-category-title'][$n] ? $options['portfolio-category-title'][$n] : 'Portfolio Title') ?></h1></div></div>
-							
 							
 										<div class="feature-content">
 							
@@ -1212,11 +1199,9 @@ class PortFolder {
 							
 										</div> <!--box-content close-->
 							
-									<span class="read-more"><a href="<?php echo ($options['portfolio-category-link'][$n] ? $options['portfolio-category-link'][$n] : '#') ?>" target="_blank"><?php _e('Read More'); ?></a></span>
-							
-							
-									</div><!--boxes  end-->
+									<a href="<?php echo ($options['portfolio-category-link'][$n] ? $options['portfolio-category-link'][$n] : '#') ?>" class="button radius" target="_blank"><?php _e('View More'); ?></a>
 
+									</div><!--boxes  end-->
 
 									</li>
 							
@@ -1229,8 +1214,6 @@ class PortFolder {
 								?>
                             
                             	</ul>
-                            
-                                <div class="clear"></div>
                             
                             </div>
 								
@@ -1261,7 +1244,6 @@ class PortFolder {
 
 					 </li>
 
-					
                     <?php 
 					
 						// REMOVE A CATEGORY ITEM - deiplay notice // click back
@@ -1271,30 +1253,17 @@ class PortFolder {
                     ?>
                     
                    <li>
-    
-                        <?php  $this->deleteFromArray($this->getID());  ?>
+    				<?php  $this->deleteFromArray($this->getID());  ?>
+				  </li>
+                  <?php 
+					// REMOVE A CATEGORY ITEM - deiplay notice // click back
+					elseif ($this->getOptionPage() == "remove-portfolio-category" && $this->getID() !== false): 
+                  ?>
+                  <li>
+                    <?php  $this->delete_portfolio_category($this->getID());  ?>
+				  </li>
 
-
-					</li>
-                    
-                    
-                    <?php 
-					
-						// REMOVE A CATEGORY ITEM - deiplay notice // click back
-					
-						elseif ($this->getOptionPage() == "remove-portfolio-category" && $this->getID() !== false): 
-                    
-                    ?>
-                    
-                   <li>
-
-                        <?php  $this->delete_portfolio_category($this->getID());  ?>
-
-
-					</li>
-                    
-                    
-					<?php endif; ?>
+				  <?php endif; ?>
 
                 </ul>
 
@@ -1303,30 +1272,19 @@ class PortFolder {
 				/* submit_button( $text, $type, $name, $wrap, $other_attributes ) */
 				
 				if ($this->getID())
-					
-					$text = "Remove Category";
+				  $text = "Remove Category";
 				
 				else if ($this->getOptionPage() == 'featured' or $this->getOptionPage() == 'portfolio')
-					
-					$text = "Add Category";
+				  $text = "Add Category";
 
 				else 
-					
-					$text = "Save Changes";
-					
-				
+				  $text = "Save Changes";
+
 				submit_button($text); 
-				
-				
-				
+
 				/* add a cancel button for category - remove pages */
-				
-				
 				//submit_button('cancel'); 
-				
-				
-				
-				
+
 				?>
                 
                  <!--input type="hidden" name="action" value="update_form" /-->
@@ -1339,10 +1297,14 @@ class PortFolder {
 
 <?php
 
+      echo '<pre>';
+	  print_r($portfolder_options);
+      echo  '</pre>';
+
     }
 
     // DisplayPortfolderHome short code display type 
-    function portfolder_main_code($atts){
+    function portfolder_home_code($atts){
 		//Display Portfolder Content
 		return $this->DisplayPortfolderHome();
 	}
@@ -1353,7 +1315,7 @@ class PortFolder {
     
         <div class="row">
     
-            <div class="four columns">
+            <div class="small-4 columns left">
     
     			<?php $portfolder_options = get_option("portfolder_options");
 	
@@ -1370,7 +1332,7 @@ class PortFolder {
     
             </div>	
         
-            <div class="eight columns">
+            <div class="small-8 columns">
 
                 <!--slideshow-->
 
@@ -1470,7 +1432,7 @@ class PortFolder {
         
 		<div id="features_container">
 			
-			<div class="row">
+			<div class="row clearfix">
             
             <?php $portfolder_options = get_option("portfolder_featured_options");
                     
@@ -1486,7 +1448,7 @@ class PortFolder {
 				
 				for ($i = 1; $i <= 4; $i++) { ?>
 
-					<div class="three columns">
+					<div class="small-3 columns left">
 			
 						<div class="feature-head">
 			
@@ -1542,6 +1504,13 @@ class PortFolder {
 	
 <?php }
 
+// DisplayPortfolderHome short code display type 
+    function portfolder_main_code($atts){
+		//Display Portfolder Content
+		return $this->DisplayPortfolderPortfolio();
+	}
+
+
 function DisplayPortfolderPortfolio(){ 
 
 				
@@ -1585,49 +1554,37 @@ function DisplayPortfolderPortfolio(){
 						</div> <!--box-head close-->
 			
 			
-					<div class="title-box">						
-			
-					<div class="title-head"><h1><?php echo ($options['portfolio-category-title'][$n] ? $options['portfolio-category-title'][$n] : 'Portfolio Title') ?></h1></div></div>
-			
-			
-						<div class="feature-content">
-			
-            			<?php echo ($options['portfolio-category-title'][$n] ? $options['portfolio-category-desc'][$n] : 'Nullam posuere felis a lacus tempor eget dignissim arcu adipiscing. Donec est est, rutrum vitae bibendum vel, suscipit non metus.') ?>
-            
-			
-						</div> <!--box-content close-->
-			
-					<span class="read-more"><a href="<?php echo ($options['portfolio-category-link'][$n] ? $options['portfolio-category-link'][$n] : '#') ?>"><?php _e('Read More'); ?></a></span>
-			
-			
-					</div><!--boxes  end-->
-			
-			
-				<?php 
-				
-				 $n++;
-				
-				} 
-				
-				?>
+			<div class="title-box">						
 
+				<div class="title-head"><h1><?php echo ($options['portfolio-category-title'][$n] ? $options['portfolio-category-title'][$n] : 'Portfolio Title') ?></h1></div></div>
+
+				<div class="feature-content">
+			
+            		<?php echo ($options['portfolio-category-title'][$n] ? $options['portfolio-category-desc'][$n] : 'Nullam posuere felis a lacus tempor eget dignissim arcu adipiscing. Donec est est, rutrum vitae bibendum vel, suscipit non metus.') ?>
+
+				</div> <!--box-content close-->
+			
+				<span class="read-more"><a href="<?php echo ($options['portfolio-category-link'][$n] ? $options['portfolio-category-link'][$n] : '#') ?>"><?php _e('Read More'); ?></a></span>
+
+			</div><!--boxes  end-->
+
+		<?php 
+
+		$n++;
+
+		} 
+
+		?>
 
 		</div>
-				
 
 	</div>
-
 	<!-- home boxes end -->
-			
-			
 
 	<?php 
-	
 	/*END PORTFOLIO BOXES*/ 
-	
-	}
 
+	}
 }
 
 $portfolder = new PortFolder();
-

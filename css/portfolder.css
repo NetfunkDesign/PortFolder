@@ -1,579 +1,349 @@
-/**/
-/* PortFOLDER */
-/**/
-
-/* structure */
-
-.column, .columns { float: left; min-height: 1px; padding: 0px 15px;  position: relative; }
-
-.one, .row .one { width: 8.33333%; }
-
-.two, .row .two { width: 16.66667%; }
-
-.three, .row .three { width: 25%; }
-
-.four, .row .four { width: 33.33333%; }
-
-.five, .row .five { width: 41.66667%; }
-
-.six, .row .six { width: 50%; }
-
-.seven, .row .seven { width: 58.33333%; }
-
-.eight, .row .eight { width: 66.66667%; }
-
-.nine, .row .nine { width: 75%; }
-
-.ten, .row .ten { width: 83.33333%; }
-
-.eleven, .row .eleven { width: 91.66667%; }
-
-.twelve, .row .twelve { width: 100%; }
-
 
 /* Portfolder Home Setup */
 
-/*////////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-#portfolder_container {
-
-	background: #fff;
-	
-	padding-top: 20px;
-	
-	border-bottom: 1px #cbd0d1 solid;
-	
-	box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA;
-	
-	-moz-box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA;
-
-}
-
-#portfolder_container h1 { 
-
-	font-size: 38px;
-	
-	padding: 0px;
-
-	color: #333; 
-	
-	line-height: 1;
-
- }
-
-#portfolder_container p { 
-
-	color: #333; 
-
-	
-}
-
-#portfolder_container .portfolder p {
-
-	color: #999;
-
-	margin: 0px;
-
-}
-
-
-
-
+  #portfolder_container {
+  background: #fff;
+  padding-top: 20px;
+  border-bottom: 1px #cbd0d1 solid;
+  box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA;
+  -moz-box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA }
+  #portfolder_container h1 { 
+  font-size: 38px;
+  padding: 0px;
+  color: #333; 
+  line-height: 1 }
+  #portfolder_container p { 
+  color: #333 }
+  #portfolder_container .portfolder p {
+  color: #999;
+  margin: 0px }
 
 /* Browser Resets */
 
+  .flexslider-container a:active,
+  .flexslider a:active, 
+  .flexslider-container a:focus, 
+  .flexslider a:focus  { 
+  outline: none; }
 
-.flexslider-container a:active,
+  .slides,
+  .flex-control-nav,
+  .flex-direction-nav { 
+  margin: 0; 
+  padding: 0; 
+  list-style: none } 
 
-.flexslider a:active, 
-
-.flexslider-container a:focus, 
-
-.flexslider a:focus  { outline: none; }
-
-
-.slides,
-
-.flex-control-nav,
-
-.flex-direction-nav { margin: 0; padding: 0; list-style: none; } 
-
-
-
-
-.flexslider-container { padding: 20px 0px; }
-
-
+  .flexslider-container { 
+  padding: 20px 0px }
 
 /* IE rgba() hack */
 
-.flexslider-caption { 
-
-	background:none; 
-	
-	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
-
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
-	
-	zoom: 1;
-
-}
-
+  .flexslider-caption { 
+  background:none; 
+  -ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
+  zoom: 1 }
 
 /* Caption style */
 
-.flexslider-caption { 
+  .flexslider-caption { 
+  width: 100%; 
+  padding: 7px; 
+  position: absolute; 
+  left: 0; 
+  bottom: 0;
+  text-align: center;
+  border-top: 1px #555 solid;
+  background: rgba(0,0,0,.8); 
+  color: #fff; 
+  text-shadow: 0 -1px 0 rgba(0,0,0,.8); 
+  font-size: 14px; 
+  line-height: 22px }
 
-	width: 100%; 
+/* FlexSlider Necessary Styles */ 
 
-	padding: 7px; 
-
-	position: absolute; 
-
-	left: 0; 
-	
-	bottom: 0;
-
-	text-align: center;
-
-	border-top: 1px #555 solid;
-
-	background: rgba(0,0,0,.8); 
-
-	color: #fff; 
-
-	text-shadow: 0 -1px 0 rgba(0,0,0,.8); 
-
-	font-size: 14px; 
-
-	line-height: 22px;
-
-}
-
-
-
-
-/* FlexSlider Necessary Styles
-
-*********************************/ 
-
-.flexslider { margin: 0; padding: 0; }
-
-.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; } /* Hide the slides before the JS is loaded. Avoids image jumping */
-
-.flexslider .slides img { width: 100%; display: block; }
-
-.flex-pauseplay span { text-transform: capitalize; }
-
-
+  .flexslider { 
+  margin: 0; 
+  padding: 0 }
+  .flexslider .slides > li { 
+  display: none; 
+  -webkit-backface-visibility: hidden; } /* Hide the slides before the JS is loaded. Avoids image jumping */
+  .flexslider .slides img { 
+  width: 100%; display: block }
+  .flex-pauseplay span { 
+  text-transform: capitalize }
 
 /* Clearfix for the .slides element */
 
-.slides:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; } 
+  .slides:after { 
+  content: "."; 
+  display: block; 
+  clear: both; 
+  visibility: hidden; 
+  line-height: 0; 
+  height: 0 } 
 
-html[xmlns] .slides { display: block; } 
+  html[xmlns] .slides { 
+  display: block; } 
 
-* html .slides { height: 1%; }
-
-
+  * html .slides {
+  height: 1%; }
 
 /* No JavaScript Fallback */
-
 /* If you are not using another script, such as Modernizr, make sure you
-
  * include js that eliminates this class on page load */
 
-.no-js .slides > li:first-child {display: block;}
-
-
+  .no-js .slides > li:first-child { 
+  display: block }
 
 /* FlexSlider Default Theme
 
 *********************************/
 
-.flexslider { margin: 0 0 0px; background: #fff; position: relative;  zoom: 1; }
+  .flexslider { 
+  margin: 0 0 0px; 
+  background: #fff; 
+  position: relative; 
+  zoom: 1 }
 
-.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; transition: all 1s ease; }
+  .flex-viewport { 
+  max-height: 2000px; 
+  -webkit-transition: all 1s ease; 
+  -moz-transition: all 1s ease; 
+  transition: all 1s ease }
 
-.loading .flex-viewport { max-height: 300px; }
+  .loading .flex-viewport { 
+  max-height: 300px }
 
-.portfolder .slides { zoom: 1; }
+  .portfolder .slides { 
+  zoom: 1 }
 
+  .carousel li { 
+  margin-right: 5px }
 
-
-.carousel li { margin-right: 5px }
-
-
-
-
-
-
-
-#slider_container {
-
-	background: #fff;
-
-}
-
-
-
-
-
-
+  #slider_container {
+  background: #fff }
 
 /* PortFolder Page Display CSS */
 
-
-#portfolder_subhead_container {
-
-
-	border-bottom: 1px #cbd0d1 solid; 
-	
-	background: #FFF; /* Old browsers */
-
-	box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA;
-	
-	-moz-box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA;
-	
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*homepage features boxes*/
-
-/*////////////////////////////////////////////////////////////////////////////////////////////*/
-
-
-
-#features_container {
-
-	background: #e3e7e8;
-
-	padding-top: 35px;
-
-	box-shadow: inset 0px 1px 1px #FFF;
-
-}
-
-#features_container h3 { color: #FFF; padding: 0px 0px 0px 20px }
-
-#features_container .title-head h1 { line-height: 1; color: #8093a0; }
-
-#features_container .feature-content { color: #65859a; height: 74px; overflow: hidden; }
-
-#features_container .admin-edit .feature-content {
-	
-	 height: 55px;
-
-}
-
-
-
-.feature-head {
-
-	float: left;
-
-	padding-bottom: 20px;
-	
-	
-}
-
-
-
-.feature-head img{
-
-	border: 1px #333 solid;
-	
-	border-radius: 4px;
-	
-	clear: both;
-	
-	box-shadow: 0px 1px 8px #000;
-
-
-}
-
-.feature-head img:hover {
-
-	border: 1px #444 solid;
-
-	box-shadow: 0px 1px 12px #000;
-
-}
-
-
-
-.title-head{
-
-	padding-top:2px;
-
-}
-
-
-
-.title-box{
-
-	color: #333;
-
-	line-height: 15px;
-
-	text-transform: uppercase;
-
-}
-
-
-
-.title-box h1 {
-
-	font-size: 25px;
-
-	margin-bottom: 3px;
-	
-	overflow: hidden;
-	
-	height: 50px;
-	
-	clear: both;
-
-}
-
-
-
-.feature-content {
-
-	font-size: 12px;
-	
-	font-weight: 500;
-
-	float: left;
-
-	padding-top: 10px;
-
-	line-height: 1.8
-
-}
-
-
-#features_container .read-more { 
-
-	background: #2795b6; 
-
-	color: #FFF;
-
-	padding: 4px 10px;
-	
-	display: inline-block;
-	
-	float: none;
-	
-	font-size: 11px;
-	
-	font-weight: 600;
-	
-	text-decoration: none;
-	
-	text-transform: capitalize;
-	
-	cursor: pointer;
-	
-	line-height: 14px;
-	
-	margin-top: 20px;
-	
-	margin-right: 10px;
-	
-	margin-bottom: 40px; 
-	
-	border: 1px #15bdef solid; 
-	
-	border-radius: 3px;	  
-	
-	-moz-border-radius: 3px;
-
-	-webkit-border-radius: 3px;
-	
-	box-shadow: inset 0px 0px 3px #15bdef, 0px 2px 5px #becdd2; 
-
-
-}
-
-#features_container .read-more a { font-weight: 600; color: #FFF; }
-
-#features_container .read-more:hover { background: #FFF; border: 1px #149fc8 solid; box-shadow:  none }
-
-#features_container .read-more a:hover, 
-
-#features_container .read-more:hover a  { color: #196d89; }
-
-#features_container .read-more:hover { box-shadow: 0px 3px 10px #7c9299; }
-
-
-
-
-
-
-.flexslider p{
-
-	margin: 0px;
-
-}
-
+  #portfolder_subhead_container {
+  border-bottom: 1px #cbd0d1 solid; 
+  background: #FFF; 
+  box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA;
+  -moz-box-shadow: 0px 0px 100px #bcd7e2, inset 0px 1px 1px #FFF, inset 0px 0px 80px #AAA }
+
+/*homepage features boxes */
+
+  #features_container { 
+  background: #e3e7e8;
+  padding-top: 35px;
+  box-shadow: inset 0px 1px 1px #FFF }
+  #features_container h3 { 
+  color: #FFF; 
+  padding: 0px 0px 0px 20px }
+  #features_container .title-head h1 { 
+  line-height: 1; 
+  color: #8093a0; }
+  #features_container .feature-content { 
+  color: #65859a; 
+  height: 74px; 
+  overflow: hidden; }
+  #features_container .admin-edit .feature-content {
+  height: 55px }
+
+  .feature-head {
+  padding-bottom: 20px }
+  
+  .feature-head img{
+  border: 1px #000 solid;
+  clear: both; }
+  
+ .title-head{
+  padding-top: 2px }
+  
+  .title-box{
+  color: #333;
+  line-height: 15px;
+  text-transform: uppercase }
+  .title-box h1 {
+  font-size: 25px;
+  margin-bottom: 3px;
+  overflow: hidden;
+  height: 50px;
+  clear: both }
+
+  .feature-content {
+  font-size: 12px;
+  font-weight: 500;
+  float: left;
+  padding-top: 10px;
+  line-height: 1.8 }
+  #features_container .read-more { 
+  background: #2795b6; 
+  color: #FFF;
+  padding: 4px 10px;
+  display: inline-block;
+  float: none;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
+  cursor: pointer;
+  line-height: 14px;
+  margin-top: 20px;
+  margin-right: 10px;
+  margin-bottom: 40px; 
+  border: 1px #15bdef solid; 
+  border-radius: 3px;	  
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  box-shadow: inset 0px 0px 3px #15bdef, 0px 2px 5px #becdd2 }
+  #features_container .read-more a { 
+  font-weight: 600; 
+  color: #FFF }
+  #features_container .read-more:hover { background: #FFF; border: 1px #149fc8 solid; box-shadow:  none }
+  #features_container .read-more a:hover, 
+  #features_container .read-more:hover a { 
+  color: #196d89 }
+  #features_container .read-more:hover { 
+  box-shadow: 0px 3px 10px #7c9299 }
+
+  .flexslider p{
+	margin: 0px }
 
 
 
 /* ADMIN - update button */
 
-/*////////////////////////////////////////////////////////////////////*/
+  #portfolder-update {
+  display: none;
+  padding: 5px }
+
+  .portfolder-nav { 
+  padding: 20px 0px 10px 0px; 
+  border-bottom: 1px #CCC solid }
+
+  .portfolder-nav ul { 
+  padding: 0px; 
+  margin: 0px 0px -2px 0px }
+
+  .portfolder-nav ul li { 
+  list-style:none; 
+  display:inline-block; 
+  padding: 0px; 
+  margin: 0px }
+
+  .portfolder-nav ul li a { 
+  padding: 10px 15px; 
+  background: #EEE; 
+  border: 1px #CCC solid; 
+  font-weight: 600; 
+  border-radius: 4px 4px 0px 0px!important; }
+
+  .portfolder-nav ul li a.portfolder_settings_current {
+  background-color: rgb(33, 117, 155);
+  background-image: linear-gradient(to bottom, rgb(42, 149, 197), rgb(33, 117, 155));
+  border-color: rgb(33, 117, 155) rgb(33, 117, 155) rgb(30, 106, 141);
+  box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.5) inset;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1); }
 
 
-#portfolder-update {
+/* featured content admin */
 
-    display: none;
+  .portfolder-admin-content { 
+  padding-bottom: 200px; }
 
-    padding: 5px;
+  .portfolder-admin-content #features_container {
+  padding: 10px;	
+  border-radius: 7px;
+  background: #111;
+  border: 1px #000 solid;
+  box-shadow: none } 
 
-}
+  .portfolder-admin-content #features_container h3 { 
+  text-shadow: 0px 0px 2px #222; 
+  font-size: 28px; 
+  margin: 0px 0px 40px 0px; 
+  padding: 15px 10px 15px 10px; 
+  border-radius: 5px; 
+  background: #28343b; }
 
+  .portfolder-admin-content #features_container h3 span { 
+  float: right; 
+  font-size: 16px; 
+  margin-top: -5px;
+  margin-right: 40px }
 
-.portfolder-nav { padding: 20px 0px 10px 0px; border-bottom: 1px #CCC solid;}
+  .portfolder-admin-content #features_container h3 span a { 
+  font-size: 14px; 
+  font-weight: 600; 
+  padding: 4px 8px 8px 8px; 
+  height: 30px!important; 
+  box-shadow: 0px 0px 1px #999, 0px 1px 3px #069 }
 
-.portfolder-nav ul { padding: 0px; margin: 0px 0px -2px 0px; }
+  .portfolder-admin-content #features_container h3 span a:hover { 
+  border: 1px #09C solid; 
+  box-shadow: 0px 1px 3px #333; }
 
-.portfolder-nav ul li { list-style:none; display:inline-block; padding: 0px; margin: 0px; }
+  .portfolder-admin-content ul#sortable-categories { 
+  list-style-type: none; 
+  border: 0px; 
+  margin: 0px; 
+  padding: 0px;
+  width: 100%; }
 
-.portfolder-nav ul li a { padding: 10px 15px; background: #EEE; border: 1px #CCC solid; font-weight: 600; border-radius: 4px 4px 0px 0px!important; }
+  .portfolder-admin-content #sortable-categories li {   
+  border: 0px; }
 
-.portfolder-nav ul li a.portfolder_settings_current {
+  .portfolder-admin-content .portfolder-form-controlls li { 
+  border-bottom: 1px #CCC solid; 
+  padding-bottom: 40px; }
 
-    background-color: rgb(33, 117, 155);
+  .portfolder-admin-content .portfolder-form-controlls li:last-child { 
+  padding-bottom: 20px; }
 
-    background-image: linear-gradient(to bottom, rgb(42, 149, 197), rgb(33, 117, 155));
+  .portfolder-admin-content .admin-edit {
+  padding: 20px;
+  border: 1px #444 dotted;
+  border-radius: 0px 5px 5px 5px;
+  background: #111 }
+  .portfolder-admin-content .admin-edit:hover {
+  cursor: move;
+  border: 1px #555 dotted }
 
-    border-color: rgb(33, 117, 155) rgb(33, 117, 155) rgb(30, 106, 141);
+  .portfolder-admin-content .feature-head img:hover {
+  border: 1px #333 solid }
 
-    box-shadow: 0px 1px 0px rgba(120, 200, 230, 0.5) inset;
+  .portfolder-admin-content #features_container .read-more {
+  margin-bottom: 20px }
 
-    color: rgb(255, 255, 255);
+  .admin-edit .title-box .title-head h1 { 
+  line-height: 18px; }
 
-    text-decoration: none;
+  .admin-edit-panel { 
+  background: #111; 
+  display: block; 
+  position: absolute; 
+  margin: -43px 0px 0px -21px;  
+  border: 1px #333 dotted; 
+  border-bottom: none; 
+  border-radius: 5px 5px 0px 0px }
 
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-
-}
-
-.portfolder-admin-content { padding-bottom: 200px; }
-
-.portfolder-admin-content #features_container {
-	
-	width: 1080px;
-	
-	padding-top: 0px;
-
-	padding-bottom: 15px;	
-	
-	border-radius: 10px 10px 10px 10px;
-	
-	background: #111;
-	
-	border: 1px #000 solid;
-	
-	box-shadow: 0px 3px 10px #999;
-
-} 
-
-.portfolder-admin-content #sortable-categories { list-style-type: none; border: 0px; margin: 0p; padding: 0px; width: 1060px;}
-
-.portfolder-admin-content #sortable-categories li { list-style: none; float: left; border: 0px; margin: 0p; padding: 0px; }
-
-.portfolder-admin-content #features_container h3 { text-shadow: 0px 0px 2px #222; font-size: 28px; margin: 0px 0px 30px 0px; padding: 24px 10px 0px 20px; height: 50px; border-bottom: 1px #555 solid; border-radius: 10px 10px 0px 0px; 
-
-	background: #222; 
-
-	background: -moz-linear-gradient(top, #434649 0%, #828c95 11%, #28343b 100%); /* FF3.6+ */
-	
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#434649), color-stop(11%,#828c95), color-stop(100%,#28343b)); /* Chrome,Safari4+ */
-	
-	background: -webkit-linear-gradient(top, #434649 0%,#828c95 11%,#28343b 100%); /* Chrome10+,Safari5.1+ */
-	
-	background: -o-linear-gradient(top, #434649 0%,#828c95 11%,#28343b 100%); /* Opera 11.10+ */
-	
-	background: -ms-linear-gradient(top, #434649 0%,#828c95 11%,#28343b 100%); /* IE10+ */
-	
-	background: linear-gradient(to bottom, #434649 0%,#828c95 11%,#28343b 100%); /* W3C */
-
-}
-
-.portfolder-admin-content #features_container h3 span { float: right; font-size: 16px; margin-top: -5px; margin-right: 40px; }
-
-.portfolder-admin-content #features_container h3 span a { font-size: 14px; font-weight: 600; padding: 4px 8px 8px 8px; height: 30px!important; box-shadow: 0px 0px 1px #999, 0px 1px 3px #069;  }
-
-.portfolder-admin-content #features_container h3 span a:hover { border: 1px #09C solid; box-shadow: 0px 1px 3px #333; }
-
-.portfolder-admin-content .portfolder-form-controlls li { border-bottom: 1px #CCC solid; padding-bottom: 40px; }
-
-.portfolder-admin-content .portfolder-form-controlls li:last-child { padding-bottom: 20px; }
-
-
-
-.portfolder-admin-content .admin-edit {
-	
-	width: 220px;
-	
-	padding-top: 20px;
-
-	margin: 9px 4px 19px 9px;
+  .admin-edit-panel a { 
+  padding: 5px 20px 10px; 
+  line-height: 22px; 
+  font-weight: 600; 
+  color: #F60; 
+  font-size:10px; 
+  text-decoration: none }
+  .admin-edit-panel a:hover {
+  color: #f90 }
  
-	border: 1px #444 dotted;
+  .option_warning { 
+  color: #900; 
+  font-weight: normal; 
+  font-size: 14px }
 
-	border-radius: 0px 5px 5px 5px;
-	
-	background: #111;
-}
-
-.portfolder-admin-content .admin-edit:hover {
-
-	cursor: move;
-	
-	border: 1px #555 dotted;
-
-}
-
-
-.portfolder-admin-content .feature-head img:hover {
-
-	border: 1px #333 solid;
-
-}
-
-.portfolder-admin-content #features_container .read-more {
-
-	margin-bottom: 20px;
-
-}
-
-.admin-edit .title-box .title-head h1 { line-height: 18px; }
-
-.admin-edit-panel { background: #111; display: block; position: absolute; margin: -43px 0px 0px 0px; left: -1px; border: 1px #333 dotted; border-bottom: none; border-radius: 5px 5px 0px 0px; }
-
-.admin-edit-panel a { padding: 5px 20px 10px; line-height: 22px; font-weight: 600; color: #F60; font-size:10px; text-decoration: none; }
-
-.admin-edit-panel a:hover {  color: #f90; }
-
-.option_warning { color: #900; font-weight: normal; font-size: 14px; }
-
-
-
+/* EOF */
