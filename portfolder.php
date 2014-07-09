@@ -284,7 +284,6 @@ License: Copyright NetFunkDesign 2013
 		  $options[$key] = $option;
 
 		// PORTFOLIO CATEGORY TITLES
-
 		$oldarray1 = (isset($options['portfolio-category-title']) ? $options['portfolio-category-title'] : array());
 		$newinput1 = trim($input['title-category-portfolio']);
 		array_push($oldarray1,$newinput1);
@@ -343,7 +342,6 @@ License: Copyright NetFunkDesign 2013
   }
 
   function create_homeblurb_field(){ 
-
     $portfolder_options = get_option("portfolder_options");
     if (!empty($portfolder_options)) {
       foreach ($portfolder_options as $key => $option)
@@ -352,7 +350,6 @@ License: Copyright NetFunkDesign 2013
     echo '<textarea name="portfolder_options[homeblurb-portfolder]" cols="100" rows="9" id="homeblurb-portfolder"/>'.(isset($options['portfolder-homeblurb']) ? $options['portfolder-homeblurb'] : '') .'</textarea>';
    
   }
-
 
   function print_homeimage_info(){ 
     echo 'The home page featured image (set path for single image only)'; 
@@ -660,88 +657,56 @@ License: Copyright NetFunkDesign 2013
                   </div>
 
                   <?php 
-							
+
                     } else {
 								
                       echo '<p style="padding: 5px; color: #F20"> <strong>No featured categories have been created yet!</strong> <a href="#new-category" class="button button-primary" style="margin-left: 80px;">Add New Category</a></p>';
+					  $pluginUrl = WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__));
+					  $img = $pluginUrl."/img/help1.jpg";
+					  echo '<img src="'.$img.'" title="The category editor window sample view">';
 								
-								$pluginUrl = WP_PLUGIN_URL.'/'.dirname(plugin_basename(__FILE__));
-								
-								 $img = $pluginUrl."/img/help1.jpg";
-								
-									echo '<img src="'.$img.'" title="The category editor window sample view">';
-								
-								?>
-                                
-                                	<p style="padding: 10px; color: #555; border: 1px #09C solid; border-radius: 4px; font-size: 12px; width: 480px;">
-                                    
-                                    <strong style="color: #09C; margin-right: 10px;">Tip:</strong> Create a featured cateogry to point to any section in your website. Ater adding a new cateroy you will be promted with the category editor window.
-                                    
-                                    </p>
+				  ?>
 
-								
-								<?php
-								
-							}
-						
-						?>
+                  <p style="padding: 10px; color: #555; border: 1px #09C solid; border-radius: 4px; font-size: 12px; width: 480px;">
+                    <strong style="color: #09C; margin-right: 10px;">Tip:</strong> Create a featured cateogry to point to any section in your website. Ater adding a new cateroy you will be promted with the category editor window.
+                  </p>
 
-                    </li>
+				  <?php
+					 }
+				  ?>
 
-                    
-                    <li>
-					
-                    	<a name="new-category"></a>
-                    
-                    <?php
-                    
-                    	// This prints out all hidden setting fields
-						
-						settings_fields('portfolder_featured_options');	
-						do_settings_sections('portfolder_featured_options');
+                </li>
 
-					?>
+                <li>
+                  <a name="new-category"></a>
+                  <?php
+                    // This prints out all hidden setting fields
+                    settings_fields('portfolder_featured_options');	
+                    do_settings_sections('portfolder_featured_options');
+                  ?>
+                </li>
 
-					 </li>
+                <?php // BEGIN PORTFOLIO SETTING PAGE
+                  elseif (getOptionPage() && getOptionPage() == "portfolio"):
+                ?>
+ 
+                <li class="clearfix">
+                  <h3>Portfolio Categories</h3>
+                    <?php 
+                      $portfolder_options = get_option("portfolder_portfolio_options");
+                      if (!empty($portfolder_options)) {
+                        foreach ($portfolder_options as $key => $option){
+                          $options[$key] = $option;
+                        }
+                      ?>
+                      <div class="panel">
+                        <strong style="color: #09C; margin-right: 10px;">Tip:</strong> Sort portfolio categories by dragging them to a new position.
+                      </div>
+                      
+                      <div class="small-12 columns" id="features_container">
+                        <h3 class="clearfix">Preview Categories: <span> <a href="#new-category" class="button button-primary">Add New Category</a> </span> </h3>
 
-
-					<?php // BEGIN PORTFOLIO SETTING PAGE
-
-						elseif (getOptionPage() && getOptionPage() == "portfolio"):
-
-                    ?>
-                    
-                     <li class="clearfix">
-
-                        <h3>Portfolio Categories</h3>
-
-
-						<?php 
-
-							$portfolder_options = get_option("portfolder_portfolio_options");
-		
-							if (!empty($portfolder_options)) {
-								
-								foreach ($portfolder_options as $key => $option){
-								
-									$options[$key] = $option;
-								
-								}
-								
-							?>
-                            
-                            	<div class="panel">
-                                    
-                                    <strong style="color: #09C; margin-right: 10px;">Tip:</strong> Sort portfolio categories by dragging them to a new position.
-                                
-                               </div>
-                        
-                        		<div class="small-12 columns" id="features_container">
-                    
-                    			<h3 class="clearfix">Preview Categories: <span> <a href="#new-category" class="button button-primary">Add New Category</a> </span> </h3>
-                            
-                            
-                            	<ul id="sortable-categories" class="small-12 clearfix" data-equalizer>
+                        <ul id="sortable-categories" class="small-12 clearfix" data-equalizer>
                             
                             <?php
 								
